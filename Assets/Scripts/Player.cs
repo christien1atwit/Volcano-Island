@@ -18,11 +18,19 @@ public class Player : MonoBehaviour
     void Update()
     {
         input = Input.GetAxisRaw("Horizontal");
-        print(input);
+        //print(input);
     }
 
     void FixedUpdate()
     {
             rb.linearVelocity = new Vector2(input*speed, rb.linearVelocity.y);
+    }
+
+    public void reset()
+    {
+        health = 3;
+        Vector3 pos = new Vector3(0f, -4.11f, 0f);
+        transform.position = pos;
+        this.gameObject.SetActive(true);
     }
 }
